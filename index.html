@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Car Home</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/552c5c1337.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
     <nav class="navbar" aria-label="Primary Navigation">
-      <div class="logo">devsellers
-
+      <div class="logo">
+        <img src="./images/4d365cf2-2cf0-4f36-8f5f-22e3d57c6d34.jpeg" alt="logo" width="60px">
+        devsellers
       </div>
-      
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Service</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#register">Register</a></li>
-      </ul>
+
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="#"> <i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#"> <i class="fa-solid fa-bell-concierge"></i> Service</a></li>
+          <li><a href="#"> <i class="fa-solid fa-eject"></i> About</a></li>
+          <li><a href="#register"> <i class="fa-solid fa-registered"></i> Register</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
@@ -31,11 +35,20 @@
           ex perferendis, saepe aspernatur asperiores!</p>
     </section>
 
-    <section id="images ">
+    <section id="images">
 
-      <img src="" alt="">
-      <img src="" alt="">
+      <div class="car-slider">
+        <div class="car-card">
+          <img src="./images/4d365cf2-2cf0-4f36-8f5f-22e3d57c6d34.jpeg" alt="Car image" class="car-image" />
+          <div class="car-info">
+            <h3 class="car-make">Volkswagen Type 2</h3>
+            <p class="car-price">$25,000</p>
+          </div>
+        </div>
 
+        <button class="nav-button prev-button" aria-label="Previous Car">&#10094;</button>
+        <button class="nav-button next-button" aria-label="Next Car">&#10095;</button>
+      </div>
 
     </section>
 
@@ -55,14 +68,14 @@
         <input type="text" name="name">
         <br>
 
-         <label for="email">email</label>
-        <input type="email" email="email">
+         <label for="email">Email</label>
+        <input type="email" id="email">
         <br>
 
         <label for="pass">Password</label>
-        <input type="password" pass="pass">
+        <input type="password" id="pass">
         <br>
-        <button type="Regijster" class="btn">Submit</button>
+        <button type="submit" class="btn">Register</button>
 
       </fieldset>
 
@@ -71,5 +84,69 @@
 
    
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cars = [
+        {
+          image: './images/4d365cf2-2cf0-4f36-8f5f-22e3d57c6d34.jpeg',
+          make: 'Volkswagen Type 2',
+          price: '$25,000'
+        },
+        {
+          image: './images/9c5a70d6d7a010adf66dad6fefd33a41.jpg',
+          make: 'Volkswagen Bus',
+          price: '$30,000'
+        },
+        {
+          image: './images/060d01347a891f772e61c91af4fcb849.jpg',
+          make: 'Classic VW Camper',
+          price: '$28,000'
+        },
+        {
+          image: './images/570b1290-9114-4143-b8b5-3ba11031749a.jpeg',
+          make: 'Vintage VW Van',
+          price: '$27,500'
+        },
+        {
+          image: './images/758e67ae8849fdedca9d423dc4ab707a.jpg',
+          make: 'Retro VW Bus',
+          price: '$26,000'
+        },
+        {
+          image: './images/5157c925-b5eb-4973-81fc-c3eee2fcea82.jpeg',
+          make: 'VW Kombi',
+          price: '$29,000'
+        }
+      ];
+
+      let currentIndex = 0;
+
+      const carImage = document.querySelector('.car-image');
+      const carMake = document.querySelector('.car-make');
+      const carPrice = document.querySelector('.car-price');
+      const prevButton = document.querySelector('.prev-button');
+      const nextButton = document.querySelector('.next-button');
+
+      function updateCar() {
+        const car = cars[currentIndex];
+        carImage.src = car.image;
+        carMake.textContent = car.make;
+        carPrice.textContent = car.price;
+      }
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cars.length) % cars.length;
+        updateCar();
+      });
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cars.length;
+        updateCar();
+      });
+
+      updateCar();
+    });
+  </script>
 </body>
 </html>
