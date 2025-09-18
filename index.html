@@ -30,9 +30,9 @@
 
     <section id="home" class="message">
       <h1>Welcome to devsellers</h1>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut soluta a
-         <br> sint, eos vitae ab possimus voluptatem officiis adipisci quaerat laborum quis numquam eum culpa <br>
-          ex perferendis, saepe aspernatur asperiores!</p>
+      <p>Your trusted destination for classic Volkswagen vehicles. We specialize in iconic VW models,
+         <br> from beloved Type 2 buses to timeless Beetles. With decades of experience in vintage automobiles,
+         <br> we pride ourselves on offering meticulously maintained vehicles that combine nostalgic charm with reliable performance.</p>
     </section>
 
     <section id="images">
@@ -166,6 +166,8 @@
         currentIndex = (currentIndex - 1 + cars.length) % cars.length;
         updateCar();
       });
+
+      
 
       nextButton.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % cars.length;
