@@ -273,14 +273,25 @@ body {
   background-color: #d29f9f;
   padding: 1rem 2rem;
   }
+  .foter a{
 
+    font-size: 20px;
+    gap: 20px;
+    color: #d32f3f;
     
 
+
+
+  }
+
+ /* Media queries to make responsive design */
+
 /* Responsive design */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
     padding: 1rem;
+    align-items: center;
   }
 
   .nav-links {
